@@ -6,14 +6,14 @@ const CardListDiv = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   gap: 1em;
   margin: auto;
   background-color: gold;
   border-radius: 8px;
 `;
-const PokemonList = ({ MOCK_DATA }) => {
+const PokemonList = ({ MOCK_DATA, handleAddPokemon }) => {
   return (
     <CardListDiv>
       {MOCK_DATA.map((data) => {
@@ -25,7 +25,13 @@ const PokemonList = ({ MOCK_DATA }) => {
           desc: data.dscription,
         };
 
-        return <PokemonCard key={pokemon.id} pokemon={pokemon} />;
+        return (
+          <PokemonCard
+            key={pokemon.id}
+            pokemon={pokemon}
+            handleAddPokemon={handleAddPokemon}
+          />
+        );
       })}
     </CardListDiv>
   );
