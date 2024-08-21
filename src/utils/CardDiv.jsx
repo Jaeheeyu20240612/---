@@ -12,6 +12,7 @@ const CardDiv = styled.div`
   gap: 0.5em;
   margin-top: 20px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 8px;
+  margin-bottom: 10px;
 
   &:hover {
     transform: translateY(-5px);

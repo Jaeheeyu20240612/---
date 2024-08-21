@@ -14,21 +14,40 @@ const DashboardDiv = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
 `;
 
 const Pokeball = styled.img`
   width: 6em;
   height: 6em;
   margin-bottom: 0.5em;
+  margin-right: 1em;
 `;
+
+const Title = styled.h1`
+  @font-face {
+    font-family: 'EF_jejudoldam';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2')
+      format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  font-family: 'EF_jejudoldam';
+  letter-spacing: 5px;
+  color: white;
+  text-shadow: 1px 2px 2px crimson;
+  font-size: 2em;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  font-weight: 900;
+`;
+
 const Dashboard = ({ selectedPokemon, handleDeletePokemon }) => {
   const navigate = useNavigate();
   return (
     <DashboardDiv>
-      <h1 style={{ fontSize: '1.5em', marginTop: '1em', marginBottom: '.5em' }}>
-        나만의 포켓몬
-      </h1>
+      <Title>나만의 포켓몬 </Title>
       <div style={{ display: 'flex', flexDirection: 'row' }}>
         {selectedPokemon.length === 0
           ? Array.from({ length: 6 }).map((_, index) => {
