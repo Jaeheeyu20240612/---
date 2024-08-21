@@ -1,5 +1,6 @@
 import React from 'react';
 import { CardDiv } from '../utils/CardDiv';
+import { Buttons } from '../utils/Buttons';
 
 const PokemonCard = ({ pokemon, handleAddPokemon }) => {
   return (
@@ -7,15 +8,14 @@ const PokemonCard = ({ pokemon, handleAddPokemon }) => {
       <img src={pokemon.img} alt='pokemon.name' />
       <p>{pokemon.name}</p>
       <p>{pokemon.id}</p>
-      <button
+      <Buttons
         onClick={() => {
           handleAddPokemon(pokemon);
         }}
       >
         추가
-      </button>
+      </Buttons>
     </CardDiv>
   );
 };
-
 export default PokemonCard;

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { CardDiv } from '../utils/CardDiv';
+import { Buttons } from '../utils/Buttons';
 const DashboardDiv = styled.div`
   width: 80%;
   height: 30%;
@@ -48,13 +49,13 @@ const Dashboard = ({ selectedPokemon, handleDeletePokemon }) => {
                   <img src={p.img} alt='' />
                   <p>{p.name}</p>
                   <p>{p.id}</p>
-                  <button
+                  <Buttons
                     onClick={() => {
                       handleDeletePokemon(p);
                     }}
                   >
                     삭제
-                  </button>
+                  </Buttons>
                 </CardDiv>
               );
             })}
