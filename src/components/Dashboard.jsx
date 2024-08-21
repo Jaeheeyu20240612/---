@@ -85,14 +85,6 @@ const Dashboard = ({ selectedPokemon, handleDeletePokemon }) => {
                 </CardDiv>
               );
             })}
-        {/* {Array.from({ length: 6 }).map((_, index) => {
-          return (
-            <Pokeball
-              key={index}
-              src='https://react-6-pokemon.vercel.app/assets/pokeball-13iwdk7Y.png'
-            />
-          );
-        })} */}
       </div>
     </DashboardDiv>
   );
