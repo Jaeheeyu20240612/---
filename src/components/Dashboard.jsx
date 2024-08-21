@@ -19,7 +19,7 @@ const Pokeball = styled.img`
   height: 6em;
   margin-bottom: 0.5em;
 `;
-const Dashboard = ({ selectedPokemon }) => {
+const Dashboard = ({ selectedPokemon, handleDeletePokemon }) => {
   return (
     <DashboardDiv>
       <h1 style={{ fontSize: '1.5em', marginTop: '1em', marginBottom: '.5em' }}>
@@ -38,6 +38,7 @@ const Dashboard = ({ selectedPokemon }) => {
           : selectedPokemon.map((p) => {
               return (
                 <CardDiv
+                  key={p.id}
                   style={{
                     width: '130px',
                     marginRight: '1em',
@@ -46,6 +47,14 @@ const Dashboard = ({ selectedPokemon }) => {
                 >
                   <img src={p.img} alt='' />
                   <p>{p.name}</p>
+                  <p>{p.id}</p>
+                  <button
+                    onClick={() => {
+                      handleDeletePokemon(p);
+                    }}
+                  >
+                    삭제
+                  </button>
                 </CardDiv>
               );
             })}

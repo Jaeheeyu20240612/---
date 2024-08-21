@@ -9,8 +9,7 @@ const CardDiv = styled.div`
   align-items: center;
   background-color: #f9e78b;
   border-radius: 8px;
-
-  gap: 1em;
+  gap: 0.5em;
   margin-top: 20px;
 `;
 

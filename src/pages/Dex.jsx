@@ -16,9 +16,18 @@ const Dex = () => {
     setSelectedPokemon([...selectedPokemon, pokemon]);
   };
 
+  const handleDeletePokemon = (pokemon) => {
+    const filteredPokemon = selectedPokemon.filter((p) => p.id !== pokemon.id);
+    if (filteredPokemon) {
+      setSelectedPokemon(filteredPokemon);
+    }
+  };
   return (
     <div>
-      <Dashboard selectedPokemon={selectedPokemon} />
+      <Dashboard
+        selectedPokemon={selectedPokemon}
+        handleDeletePokemon={handleDeletePokemon}
+      />
       <PokemonList MOCK_DATA={MOCK_DATA} handleAddPokemon={handleAddPokemon} />;
     </div>
   );
