@@ -1,15 +1,24 @@
 import React from 'react';
 import { CardDiv } from '../utils/CardDiv';
 import { Buttons } from '../utils/Buttons';
+import { useNavigate } from 'react-router-dom';
+import { FormatId } from '../utils/FormatId';
 
 const PokemonCard = ({ pokemon, handleAddPokemon }) => {
+  const navigate = useNavigate();
+
   return (
-    <CardDiv>
+    <CardDiv
+      onClick={() => {
+        navigate(`/detail?id=${pokemon.id}`);
+      }}
+    >
       <img src={pokemon.img} alt='pokemon.name' />
       <p>{pokemon.name}</p>
-      <p>{pokemon.id}</p>
+      <p>{FormatId(pokemon)}</p>
       <Buttons
-        onClick={() => {
+        onClick={(e) => {
+          e.stopPropagation();
           handleAddPokemon(pokemon);
         }}
       >

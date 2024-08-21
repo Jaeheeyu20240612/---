@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { CardDiv } from '../utils/CardDiv';
 import { Buttons } from '../utils/Buttons';
+import { useNavigate } from 'react-router-dom';
+import { FormatId } from '../utils/FormatId';
 const DashboardDiv = styled.div`
   width: 80%;
   height: 30%;
@@ -21,6 +23,7 @@ const Pokeball = styled.img`
   margin-bottom: 0.5em;
 `;
 const Dashboard = ({ selectedPokemon, handleDeletePokemon }) => {
+  const navigate = useNavigate();
   return (
     <DashboardDiv>
       <h1 style={{ fontSize: '1.5em', marginTop: '1em', marginBottom: '.5em' }}>
@@ -39,6 +42,9 @@ const Dashboard = ({ selectedPokemon, handleDeletePokemon }) => {
           : selectedPokemon.map((p) => {
               return (
                 <CardDiv
+                  onClick={() => {
+                    navigate(`/detail?id=${p.id}`);
+                  }}
                   key={p.id}
                   style={{
                     width: '130px',
@@ -48,9 +54,10 @@ const Dashboard = ({ selectedPokemon, handleDeletePokemon }) => {
                 >
                   <img src={p.img} alt='' />
                   <p>{p.name}</p>
-                  <p>{p.id}</p>
+                  <p>{FormatId(p)}</p>
                   <Buttons
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.stopPropagation();
                       handleDeletePokemon(p);
                     }}
                   >
