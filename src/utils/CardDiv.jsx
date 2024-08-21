@@ -7,7 +7,7 @@ const CardDiv = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f9e78b;
+  background-color: white;
   border-radius: 8px;
   gap: 0.5em;
   margin-top: 20px;

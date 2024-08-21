@@ -17,12 +17,19 @@ const DashboardDiv = styled.div`
   margin-top: 1.5em;
   margin-bottom: 1.5em;
 `;
-
+const PokeballDiv = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
 const Pokeball = styled.img`
-  width: 6em;
-  height: 6em;
+  background-color: white;
+  padding: 0.5em;
+  width: 10%;
+  height: 10%;
   margin-bottom: 0.5em;
-  margin-right: 1em;
+  margin: 0px 10px 10px 10px;
+  border-radius: 8px;
 `;
 
 const Title = styled.h1`
@@ -48,7 +55,7 @@ const Dashboard = ({ selectedPokemon, handleDeletePokemon }) => {
   return (
     <DashboardDiv>
       <Title>나만의 포켓몬 </Title>
-      <div style={{ display: 'flex', flexDirection: 'row' }}>
+      <PokeballDiv>
         {selectedPokemon.length === 0
           ? Array.from({ length: 6 }).map((_, index) => {
               return (
@@ -85,7 +92,7 @@ const Dashboard = ({ selectedPokemon, handleDeletePokemon }) => {
                 </CardDiv>
               );
             })}
-      </div>
+      </PokeballDiv>
     </DashboardDiv>
   );
 };
