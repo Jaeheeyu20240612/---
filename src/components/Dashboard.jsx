@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { CardDiv } from '../utils/CardDiv';
 import { Buttons } from '../utils/Buttons';
 import { useNavigate } from 'react-router-dom';
 import { FormatId } from '../utils/FormatId';
 import Swal from 'sweetalert2';
+import { PokemonContext } from '../context/Context';
 
 const DashboardDiv = styled.div`
   width: 80%;
@@ -59,8 +60,9 @@ const Title = styled.h1`
   font-weight: 900;
 `;
 
-const Dashboard = ({ selectedPokemon, handleDeletePokemon }) => {
+const Dashboard = () => {
   const navigate = useNavigate();
+  const { selectedPokemon, handleDeletePokemon } = useContext(PokemonContext);
   return (
     <DashboardDiv>
       <Title>나만의 포켓몬 </Title>
@@ -69,6 +71,7 @@ const Dashboard = ({ selectedPokemon, handleDeletePokemon }) => {
           const pokemon = selectedPokemon[index];
           return pokemon ? (
             <CardDiv
+              key={pokemon.id}
               onClick={() => {
                 navigate(`/detail?id=${pokemon.id}`);
               }}

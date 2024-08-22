@@ -1,9 +1,8 @@
-import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import MOCK_DATA from '../mock';
 import styled from 'styled-components';
 import { FormatId } from '../utils/FormatId';
 import { Buttons } from '../utils/Buttons';
+import MOCK_DATA from '../mock';
 
 const DetailWrap = styled.div`
   display: flex;

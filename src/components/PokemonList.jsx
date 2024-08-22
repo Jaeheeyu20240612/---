@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PokemonCard from './PokemonCard';
 import styled from 'styled-components';
+
 const CardListDiv = styled.div`
   width: 80%;
   display: flex;
@@ -13,7 +14,7 @@ const CardListDiv = styled.div`
   background-color: gold;
   border-radius: 8px;
 `;
-const PokemonList = ({ MOCK_DATA, handleAddPokemon }) => {
+const PokemonList = ({ MOCK_DATA }) => {
   return (
     <CardListDiv>
       {MOCK_DATA.map((data) => {
@@ -25,13 +26,7 @@ const PokemonList = ({ MOCK_DATA, handleAddPokemon }) => {
           desc: data.dscription,
         };
 
-        return (
-          <PokemonCard
-            key={pokemon.id}
-            pokemon={pokemon}
-            handleAddPokemon={handleAddPokemon}
-          />
-        );
+        return <PokemonCard key={pokemon.id} pokemon={pokemon} />;
       })}
     </CardListDiv>
   );
