@@ -19,8 +19,15 @@ const DashboardDiv = styled.div`
 `;
 const PokeballDiv = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: center;
+  align-items: flex-end;
+
+  border-radius: 8px;
+  gap: 0.5em;
+  margin-top: 20px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 8px;
+  margin-bottom: 10px;
 `;
 const Pokeball = styled.img`
   background-color: white;
@@ -56,42 +63,30 @@ const Dashboard = ({ selectedPokemon, handleDeletePokemon }) => {
     <DashboardDiv>
       <Title>나만의 포켓몬 </Title>
       <PokeballDiv>
-        {selectedPokemon.length === 0
-          ? Array.from({ length: 6 }).map((_, index) => {
-              return (
-                <Pokeball
-                  key={index}
-                  src='https://react-6-pokemon.vercel.app/assets/pokeball-13iwdk7Y.png'
-                />
-              );
-            })
-          : selectedPokemon.map((p) => {
-              return (
-                <CardDiv
-                  onClick={() => {
-                    navigate(`/detail?id=${p.id}`);
-                  }}
-                  key={p.id}
-                  style={{
-                    width: '130px',
-                    marginRight: '1em',
-                    marginBottom: '10px',
-                  }}
-                >
-                  <img src={p.img} alt='' />
-                  <p>{p.name}</p>
-                  <p>{FormatId(p)}</p>
-                  <Buttons
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleDeletePokemon(p);
-                    }}
-                  >
-                    삭제
-                  </Buttons>
-                </CardDiv>
-              );
-            })}
+        {Array.from({ length: 6 }).map((_, index) => {
+          const pokemon = selectedPokemon[index];
+          return pokemon ? (
+            <CardDiv
+              onClick={() => {
+                navigate(`/detail?id=${pokemon.id}`);
+              }}
+            >
+              <img src={pokemon.img} alt='pokemon.name' />
+              <p>{pokemon.name}</p>
+              <p>{FormatId(pokemon)}</p>
+              <Buttons
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleDeletePokemon(pokemon);
+                }}
+              >
+                삭제
+              </Buttons>
+            </CardDiv>
+          ) : (
+            <Pokeball src='https://react-6-pokemon.vercel.app/assets/pokeball-13iwdk7Y.png' />
+          );
+        })}
       </PokeballDiv>
     </DashboardDiv>
   );
