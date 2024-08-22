@@ -3,6 +3,7 @@ import { CardDiv } from '../utils/CardDiv';
 import { Buttons } from '../utils/Buttons';
 import { useNavigate } from 'react-router-dom';
 import { FormatId } from '../utils/FormatId';
+import Swal from 'sweetalert2';
 
 const PokemonCard = ({ pokemon, handleAddPokemon }) => {
   const navigate = useNavigate();

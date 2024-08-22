@@ -4,6 +4,8 @@ import { CardDiv } from '../utils/CardDiv';
 import { Buttons } from '../utils/Buttons';
 import { useNavigate } from 'react-router-dom';
 import { FormatId } from '../utils/FormatId';
+import Swal from 'sweetalert2';
+
 const DashboardDiv = styled.div`
   width: 80%;
   height: 30%;
@@ -26,7 +28,7 @@ const PokeballDiv = styled.div`
   border-radius: 8px;
   gap: 0.5em;
   margin-top: 20px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 8px;
+
   margin-bottom: 10px;
 `;
 const Pokeball = styled.img`
@@ -78,6 +80,23 @@ const Dashboard = ({ selectedPokemon, handleDeletePokemon }) => {
                 onClick={(e) => {
                   e.stopPropagation();
                   handleDeletePokemon(pokemon);
+                  //                   Swal.fire({
+                  //   title: "Are you sure?",
+                  //   text: "You won't be able to revert this!",
+                  //   icon: "warning",
+                  //   showCancelButton: true,
+                  //   confirmButtonColor: "#3085d6",
+                  //   cancelButtonColor: "#d33",
+                  //   confirmButtonText: "Yes, delete it!"
+                  // }).then((result) => {
+                  //   if (result.isConfirmed) {
+                  //     Swal.fire({
+                  //       title: "Deleted!",
+                  //       text: "Your file has been deleted.",
+                  //       icon: "success"
+                  //     });
+                  //   }
+                  // });
                 }}
               >
                 삭제
