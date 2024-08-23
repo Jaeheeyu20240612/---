@@ -1,19 +1,7 @@
-import React, { useContext } from 'react';
+/* eslint-disable react/prop-types */
 import PokemonCard from './PokemonCard';
 import styled from 'styled-components';
 
-const CardListDiv = styled.div`
-  width: 80%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 1em;
-  margin: auto;
-  background-color: gold;
-  border-radius: 8px;
-`;
 const PokemonList = ({ MOCK_DATA }) => {
   return (
     <CardListDiv>
@@ -33,3 +21,15 @@ const PokemonList = ({ MOCK_DATA }) => {
 };
 
 export default PokemonList;
+const CardListDiv = styled.div`
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1em;
+  margin: auto;
+  background-color: gold;
+  border-radius: 8px;
+`;

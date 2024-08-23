@@ -4,26 +4,6 @@ import { FormatId } from '../utils/FormatId';
 import { Buttons } from '../utils/Buttons';
 import MOCK_DATA from '../mock';
 
-const DetailWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;
-const Name = styled.h1`
-  font-size: 20px;
-  font-weight: 900;
-  margin-bottom: 10px;
-`;
-
-const TagP = styled.p`
-  margin-bottom: 10px;
-`;
 const DetailPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -58,3 +38,23 @@ const DetailPage = () => {
 };
 
 export default DetailPage;
+const DetailWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+const Name = styled.h1`
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 10px;
+`;
+
+const TagP = styled.p`
+  margin-bottom: 10px;
+`;

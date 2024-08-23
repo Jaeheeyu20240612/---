@@ -3,24 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Buttons } from '../utils/Buttons';
 
-const LogoDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-`;
-const Logo = styled.img`
-  width: 40%;
-  height: 20%;
-`;
-const HomeDiv = styled.div`
-  width: 100%;
-  height: 100vh;
-  background-color: #f2d73dbd;
-`;
 const Home = () => {
   const navigate = useNavigate();
   return (
@@ -41,3 +23,21 @@ const Home = () => {
 };
 
 export default Home;
+const LogoDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+`;
+const Logo = styled.img`
+  width: 40%;
+  height: 20%;
+`;
+const HomeDiv = styled.div`
+  width: 100%;
+  height: 100vh;
+  background-color: #f2d73dbd;
+`;
