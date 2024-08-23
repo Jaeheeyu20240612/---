@@ -7,13 +7,15 @@ import { PokemonProvider } from './context/Context';
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/dex' element={<Dex />} />
-        <Route path='/detail' element={<DetailPage />} />
-      </Routes>
-    </BrowserRouter>
+    <PokemonProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/dex' element={<Dex />} />
+          <Route path='/detail' element={<DetailPage />} />
+        </Routes>
+      </BrowserRouter>
+    </PokemonProvider>
   );
 };
 

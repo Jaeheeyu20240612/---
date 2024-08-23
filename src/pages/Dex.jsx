@@ -20,19 +20,17 @@ const Dex = () => {
   const navigate = useNavigate();
 
   return (
-    <PokemonProvider>
-      <div>
-        <Dashboard />
-        <PokemonList MOCK_DATA={MOCK_DATA} />;
-        <MainButton
-          onClick={() => {
-            navigate('/');
-          }}
-        >
-          HOME
-        </MainButton>
-      </div>
-    </PokemonProvider>
+    <div>
+      <Dashboard />
+      <PokemonList MOCK_DATA={MOCK_DATA} />;
+      <MainButton
+        onClick={() => {
+          navigate('/');
+        }}
+      >
+        HOME
+      </MainButton>
+    </div>
   );
 };
 
