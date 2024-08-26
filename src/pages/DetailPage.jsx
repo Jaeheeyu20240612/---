@@ -19,21 +19,23 @@ const DetailPage = () => {
     navigate('/dex');
   };
   return (
-    <DetailWrap>
-      <div key={clickedPokemon.id}>
-        <img
-          style={{ width: '200px', height: '200px' }}
-          src={clickedPokemon.img_url}
-          alt=''
-        />
-        <Name>{clickedPokemon.korean_name}</Name>
-        <TagP>{FormatId(clickedPokemon)}</TagP>
-        <TagP>{clickedPokemon.description}</TagP>
-        <Buttons onClick={handleBack} style={{ width: '8em', height: '2em' }}>
-          뒤로 가기
-        </Buttons>
-      </div>
-    </DetailWrap>
+    <DetailDiv>
+      <DetailWrap>
+        <div key={clickedPokemon.id}>
+          <img
+            style={{ width: '200px', height: '200px' }}
+            src={clickedPokemon.img_url}
+            alt=''
+          />
+          <Name>{clickedPokemon.korean_name}</Name>
+          <TagP>{FormatId(clickedPokemon)}</TagP>
+          <TagP>{clickedPokemon.description}</TagP>
+          <Buttons onClick={handleBack} style={{ width: '8em', height: '2em' }}>
+            뒤로 가기
+          </Buttons>
+        </div>
+      </DetailWrap>
+    </DetailDiv>
   );
 };
 
@@ -58,3 +60,5 @@ const Name = styled.h1`
 const TagP = styled.p`
   margin-bottom: 10px;
 `;
+
+const DetailDiv = styled.div``;

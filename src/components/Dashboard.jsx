@@ -80,20 +80,19 @@ const PokeballDiv = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: flex-end;
-
   border-radius: 8px;
   gap: 0.5em;
   margin-top: 20px;
-
   margin-bottom: 10px;
+  flex-wrap: wrap;
 `;
 const Pokeball = styled.img`
   background-color: white;
-  padding: 0.5em;
-  width: 10%;
-  height: 10%;
+  padding: 5px;
+  width: 14%;
+  height: 190px;
   margin-bottom: 0.5em;
-  margin: 0px 10px 10px 10px;
+  margin: 0px 5px 10px 5px;
   border-radius: 8px;
 `;
 const Title = styled.h1`
