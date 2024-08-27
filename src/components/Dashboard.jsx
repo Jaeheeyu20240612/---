@@ -4,11 +4,14 @@ import { CardDiv } from '../utils/CardDiv';
 import { Buttons } from '../utils/Buttons';
 import { useNavigate } from 'react-router-dom';
 import { FormatId } from '../utils/FormatId';
-import { PokemonContext } from '../context/Context';
-
+import { useDispatch, useSelector } from 'react-redux';
+// import { PokemonContext } from '../context/Context';
+import { handleDeletePokemon } from '../slices/pokemonSlice';
 const Dashboard = () => {
   const navigate = useNavigate();
-  const { selectedPokemon, handleDeletePokemon } = useContext(PokemonContext);
+  // const { selectedPokemon, handleDeletePokemon } = useContext(PokemonContext);
+  const dispatch = useDispatch();
+  const selectedPokemon = useSelector((state) => state.pokemon);
   return (
     <DashboardDiv>
       <Title>나만의 포켓몬 </Title>
@@ -28,24 +31,7 @@ const Dashboard = () => {
               <Buttons
                 onClick={(e) => {
                   e.stopPropagation();
-                  handleDeletePokemon(pokemon);
-                  //                   Swal.fire({
-                  //   title: "Are you sure?",
-                  //   text: "You won't be able to revert this!",
-                  //   icon: "warning",
-                  //   showCancelButton: true,
-                  //   confirmButtonColor: "#3085d6",
-                  //   cancelButtonColor: "#d33",
-                  //   confirmButtonText: "Yes, delete it!"
-                  // }).then((result) => {
-                  //   if (result.isConfirmed) {
-                  //     Swal.fire({
-                  //       title: "Deleted!",
-                  //       text: "Your file has been deleted.",
-                  //       icon: "success"
-                  //     });
-                  //   }
-                  // });
+                  dispatch(handleDeletePokemon(pokemon));
                 }}
               >
                 삭제

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { PokemonProvider } from '../context/Context';
+
 const Buttons = styled.button`
   padding: 0.3em;
   width: 50px;
