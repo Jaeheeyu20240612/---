@@ -3,11 +3,14 @@ import styled from 'styled-components';
 import { FormatId } from '../utils/FormatId';
 import { Buttons } from '../utils/Buttons';
 import MOCK_DATA from '../mock';
+import { handleAddPokemon } from '../slices/pokemonSlice';
+import { useDispatch } from 'react-redux';
 
 const DetailPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  //   console.log(location);
+  const dispatch = useDispatch();
+
   const queryParameter = new URLSearchParams(location.search);
   const id = queryParameter.get('id');
   const clickedPokemon = MOCK_DATA.find((data) => {
@@ -30,9 +33,27 @@ const DetailPage = () => {
           <Name>{clickedPokemon.korean_name}</Name>
           <TagP>{FormatId(clickedPokemon)}</TagP>
           <TagP>{clickedPokemon.description}</TagP>
-          <Buttons onClick={handleBack} style={{ width: '8em', height: '2em' }}>
-            뒤로 가기
-          </Buttons>
+          <BtnDiv>
+            <Buttons
+              onClick={() => {
+                const updatedPokemon = {
+                  ...clickedPokemon,
+                  img: clickedPokemon.img_url,
+                  name: clickedPokemon.korean_name,
+                };
+                dispatch(handleAddPokemon(updatedPokemon));
+              }}
+              style={{ width: '7em', height: '2em' }}
+            >
+              추가
+            </Buttons>
+            <Buttons
+              onClick={handleBack}
+              style={{ width: '7em', height: '2em' }}
+            >
+              뒤로 가기
+            </Buttons>
+          </BtnDiv>
         </div>
       </DetailWrap>
     </DetailDiv>
@@ -61,4 +82,11 @@ const TagP = styled.p`
   margin-bottom: 10px;
 `;
 
+const BtnDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+`;
 const DetailDiv = styled.div``;
