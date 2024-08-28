@@ -2,18 +2,19 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { FormatId } from '../utils/FormatId';
 import { Buttons } from '../utils/Buttons';
-import MOCK_DATA from '../mock';
 import { handleAddPokemon } from '../slices/pokemonSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { MOCK_DATA_Pokemon } from '../slices/pokemonDataSlice';
 
 const DetailPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
+  const pokemonData = useSelector(MOCK_DATA_Pokemon);
 
   const queryParameter = new URLSearchParams(location.search);
   const id = queryParameter.get('id');
-  const clickedPokemon = MOCK_DATA.find((data) => {
+  const clickedPokemon = pokemonData.find((data) => {
     if (data.id === Number(id)) {
       return true;
     }

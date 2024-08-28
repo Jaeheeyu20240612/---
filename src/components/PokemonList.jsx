@@ -1,11 +1,14 @@
 /* eslint-disable react/prop-types */
+import { useSelector } from 'react-redux';
 import PokemonCard from './PokemonCard';
 import styled from 'styled-components';
+import { MOCK_DATA_Pokemon } from '../slices/pokemonDataSlice';
 
 const PokemonList = ({ MOCK_DATA }) => {
+  const pokemonData = useSelector(MOCK_DATA_Pokemon);
   return (
     <CardListDiv>
-      {MOCK_DATA.map((data) => {
+      {pokemonData.map((data) => {
         const pokemon = {
           id: data.id,
           img: data.img_url,
